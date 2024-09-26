@@ -4,8 +4,11 @@ from accounts.serializers import UserSerializer
 
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework.authentication import TokenAuthentication
 
 class Signin(Base):
+    authentication_classes = [TokenAuthentication]   
+
     def post(self, request):
         email = request.data.get('email')
         password = request.data.get('password')
