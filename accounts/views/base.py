@@ -36,5 +36,3 @@ class Base(APIView):
                 })
 
         return enterprise
-
-
