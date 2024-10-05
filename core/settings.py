@@ -27,9 +27,9 @@ SECRET_KEY = 'django-insecure-s@$=!@symh+y7_(=8c#7b)$^y%zt^0nad*pt1+q&ubyrt6mjo-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
-CORS_ALLOWED_ORIGINS = os.getenv('CORS_ALLOWED_HOSTS', 'http://:localhost').split(',')
+CORS_ALLOWED_ORIGINS = os.getenv('CORS_ALLOWED_HOSTS', '.vercel.app').split(',')
 
-ALLOWED_HOSTS = os.getenv('DJANGO', 'http://:localhost').split(',')
+ALLOWED_HOSTS = os.getenv('DJANGO', '.vercel.app').split(',')
 
 
 # Application definition
