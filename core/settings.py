@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from datetime import timedelta
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,9 +25,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-s@$=!@symh+y7_(=8c#7b)$^y%zt^0nad*pt1+q&ubyrt6mjo-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = []
+CORS_ALLOWED_ORIGINS = os.getenv('CORS_ALLOWED_HOSTS', 'http://:localhost').split(',')
+
+ALLOWED_HOSTS = os.getenv('DJANGO', 'http://:localhost').split(',')
 
 
 # Application definition
@@ -77,9 +80,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'core.wsgi.application'
-
-CORS_ALLOW_ALL_ORIGINS = True
-
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
