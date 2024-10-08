@@ -31,10 +31,12 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'default-secret-key')
 DEBUG = os.getenv("DEBUG", "False") == "False"
 
 # Allowed hosts
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1, sistemaerp-production.up.railway.app').split(',')
 
 # CORS settings
 CORS_ALLOWED_ORIGINS = os.getenv('CORS_ALLOWED_ORIGINS', 'http://localhost:3000').split(',')
+
+CSRF_TRUSTED_ORIGINS = ['https://sistemaerp-production.up.railway.app']
 
 # Application definition
 INSTALLED_APPS = [
