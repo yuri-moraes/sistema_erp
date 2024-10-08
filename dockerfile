@@ -7,16 +7,16 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean
 
 # Configurar ambiente virtual Python
-RUN python -m venv --copies /opt/venv && . /opt/venv/bin/activate
+RUN python -m venv --copies /opt/venv
 
 # Definir variáveis de ambiente necessárias
 ENV PATH="/opt/venv/bin:$PATH"
 
-# Copiar os arquivos do projeto
-COPY . /app
-
 # Definir o diretório de trabalho
 WORKDIR /app
+
+# Copiar os arquivos do projeto
+COPY . /app
 
 # Instalar dependências do projeto
 RUN pip install --upgrade pip && pip install -r requirements.txt
