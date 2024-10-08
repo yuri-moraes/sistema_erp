@@ -3,9 +3,7 @@ FROM python:3.12-slim
 # Atualizar e instalar dependências do sistema
 RUN apt-get update && apt-get install -y \
     build-essential \
-    libmariadb-dev \
-    default-libmysqlclient-dev \
-    pkg-config \
+    libpq-dev \
     && apt-get clean
 
 # Configurar ambiente virtual Python
@@ -28,7 +26,3 @@ EXPOSE 8000
 
 # Comando para rodar o servidor
 CMD ["gunicorn", "core.wsgi:application", "--bind", "0.0.0.0:8000"]
-
-RUN apt-get update && apt-get install -y \
-    libpq-dev \
-    build-essential
