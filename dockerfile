@@ -1,28 +1,34 @@
-# Baseando-se em uma imagem Python slim
 FROM python:3.12-slim
 
-# Atualize e instale dependências do sistema
+# Atualizar e instalar dependências do sistema
 RUN apt-get update && apt-get install -y \
     build-essential \
     libmariadb-dev \
+    default-libmysqlclient-dev \
     pkg-config \
     && apt-get clean
 
-# Crie e ative um ambiente virtual
-RUN python -m venv /opt/venv
+# Configurar ambiente virtual Python
+RUN python -m venv --copies /opt/venv && . /opt/venv/bin/activate
+
+# Definir variáveis de ambiente necessárias
 ENV PATH="/opt/venv/bin:$PATH"
 
-# Copie o código da aplicação para o container
+# Copiar os arquivos do projeto
 COPY . /app
 
-# Defina o diretório de trabalho
+# Definir o diretório de trabalho
 WORKDIR /app
 
-# Instale as dependências do projeto
+# Instalar dependências do projeto
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
-# Exponha a porta que será usada pela aplicação
+# Expor a porta que a aplicação irá usar
 EXPOSE 8000
 
-# Execute o servidor da aplicação (ajuste o comando conforme necessário)
-CMD ["gunicorn", "-b", "0.0.0.0:8000", "core.wsgi:application"]
+# Comando para rodar o servidor
+CMD ["gunicorn", "core.wsgi:application", "--bind", "0.0.0.0:8000"]
+
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    build-essential
