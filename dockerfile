@@ -7,10 +7,11 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean
 
 # Configurar ambiente virtual Python
-RUN python -m venv --copies /opt/venv
+RUN python -m venv /opt/venv
 
 # Definir variáveis de ambiente necessárias
-ENV PATH="/opt/venv/bin:$PATH"
+ENV VIRTUAL_ENV="/opt/venv"
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
 # Definir o diretório de trabalho
 WORKDIR /app
@@ -21,8 +22,12 @@ COPY . /app
 # Instalar dependências do projeto
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
+# Adicionar um usuário não root
+RUN adduser --disabled-password appuser
+USER appuser
+
 # Expor a porta que a aplicação irá usar
 EXPOSE 8000
 
 # Comando para rodar o servidor
-CMD ["gunicorn", "core.wsgi:application"]
+CMD ["gunicorn", "core.wsgi:application", "--bind", "0.0.0.0:${PORT}"]
