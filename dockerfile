@@ -27,7 +27,7 @@ RUN adduser --disabled-password appuser
 USER appuser
 
 # Expor a porta que a aplicação irá usar
-EXPOSE 8000
+EXPOSE 8080
 
 # Comando para rodar o servidor
 CMD ["gunicorn", "core.wsgi:application", "--bind", "0.0.0.0:${PORT}"]
