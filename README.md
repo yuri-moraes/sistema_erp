@@ -1,6 +1,10 @@
 # 💻📱 Sistema de Gestão Empresarial (ERP)
 
-Este é um Sistema de Gestão Empresarial completo utilizando tecnologias: ReactJS e Django Rest Framework.
+Este é um Sistema de Gestão Empresarial completo utilizando tecnologias: ReactJS e Django Rest Framework desenvolvida para gerenciar diversos aspectos de uma empresa, com funcionalidades que incluem gerenciamento de usuários, grupos, funcionários e outros recursos empresariais. A aplicação conta com um front-end em React e um back-end em Django utilizando o Django REST Framework.
+
+Acesse a aplicação através dos seguintes links:
+- **Front-end**: [Clique aqui](https://sistema-erp-front-end-9gig.vercel.app/)
+- **Back-end**: [Clique aqui](https://sistemaerp-production.up.railway.app/)
 
 ## ⛏️ Instalação
 
@@ -215,3 +219,8 @@ Execute o projeto com Python
 | Parâmetro | Tipo     | Descrição                         |
 | :-------- | :------- | :-------------------------------- |
 | `id`      | `number` | **Obrigatório**. ID de uma tarefa |
+
+## Link do Front-end e Back-end
+
+- Front-end: [Clique aqui para acessar](https://sistema-erp-front-end-9gig.vercel.app/) Documentação:  [Clique aqui para acessar](https://github.com/yuri-moraes/sistema_erp_front_end)
+- Back-end: [Clique aqui para acessar](https://sistemaerp-production.up.railway.app/)
