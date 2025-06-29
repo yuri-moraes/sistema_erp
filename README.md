@@ -4,7 +4,7 @@ Este é um Sistema de Gestão Empresarial completo utilizando tecnologias: React
 
 Acesse a aplicação através dos seguintes links:
 - **Front-end**: [Clique aqui](https://sistema-erp-front-end-9gig.vercel.app/)
-- **Back-end**: [Clique aqui](https://sistemaerp-production.up.railway.app/)
+- **Back-end**: [Clique aqui](https://sistema-erp-tont.onrender.com/)
 
 ## ⛏️ Instalação
 
@@ -223,4 +223,4 @@ Execute o projeto com Python
 ## Link do Front-end e Back-end
 
 - Front-end: [Clique aqui para acessar](https://sistema-erp-front-end-9gig.vercel.app/) Documentação:  [Clique aqui para acessar](https://github.com/yuri-moraes/sistema_erp_front_end)
-- Back-end: [Clique aqui para acessar](https://sistemaerp-production.up.railway.app/)
+- Back-end: [Clique aqui para acessar](https://sistema-erp-tont.onrender.com/)
